@@ -47,7 +47,7 @@ app.use('/api/productos', productosRoutes);
 // 🔹 SERVIR FRONTEND
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-console.log("SESSION:", req.session);
+
 
 
 app.get('/', (req, res) => {
