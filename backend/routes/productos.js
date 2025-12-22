@@ -9,7 +9,7 @@ const auth = require('../middleware/auth');
 // Crear producto (stock inicial)
 router.post('/',auth, async (req, res) => {
   const { nombre, categoria, cantidad } = req.body;
-  console.log("BODY:", req.body);
+
   const producto = new Producto({
     nombre,
     categoria,
