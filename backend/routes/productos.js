@@ -18,6 +18,10 @@ router.post('/',auth, async (req, res) => {
 
   await producto.save();
   res.json(producto);
+  
+  console.log("BODY:", req.body);
+  console.log("USUARIO:", req.session.usuario);
+
 });
 
 // Listar productos
