@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 
 // Crear producto (stock inicial)
-router.post('/', async (req, res) => {
+router.post('/',auth, async (req, res) => {
   const { nombre, categoria, cantidad } = req.body;
 
   const producto = new Producto({
