@@ -22,11 +22,18 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 app.use(session({
-  secret: 'inventario-secreto',
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    secure: true,      // HTTPS
+    sameSite: "none"   // Render
+  }
 }));
+
 
 
 app.use(cors());
@@ -39,6 +46,9 @@ app.use('/api/productos', productosRoutes);
 
 // 🔹 SERVIR FRONTEND
 app.use(express.static(path.join(__dirname, '../frontend')));
+
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/login.html'));
