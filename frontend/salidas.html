@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salidas</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">📦 Productos</a>
+        <a href="salidas.html">🚚 Salidas</a>
+
+        <span id="usuarioNav" class="usuario-nav"></span>
+     <button id="btnLogout" class="logout-btn">Cerrar sesión</button>
+    </nav>
+
+<h1>🚚 Salidas de stock</h1>
+
+<section>
+    <form id="formProducto">
+    <h2>Registrar salida</h2>
+    <select id="productoSalida"></select>
+    <input id="cantidadSalida" type="number" placeholder="Cantidad">
+    <input id="destinoSalida" placeholder="Destino">
+    <button id="btnSalida">Registrar</button>
+    </form>
+  </section>
+
+  <!-- TABLA SALIDAS -->
+  <section>
+    <h2>Historial de salidas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Destino</th>
+          <th>Usuario</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody id="tablaSalidas"></tbody>
+    </table>
+  </section>
+
+<script src="js/salidas.js"></script>
+</body>
+</html>

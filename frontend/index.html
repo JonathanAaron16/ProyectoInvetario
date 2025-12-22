@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+      <a href="index.html">📦 Productos</a>
+      <a href="salidas.html">🚚 Salidas</a>
+      <span id="usuarioNav" class="usuario-nav"></span>
+    
+      <button id="btnLogout" class="logout-btn">Cerrar sesión</button>
+  </nav>
+
+  <h1>📦 Control de Inventario</h1>
+
+  <!-- AGREGAR PRODUCTO -->
+  <section>
+    <h2>Agregar producto</h2>
+    <form id="formProducto">
+      <input id="nombre" placeholder="Producto" required>
+      <input id="categoria" placeholder="Categoría">
+      <input id="cantidad" type="number" placeholder="Stock inicial" required>
+      <button>Agregar</button>
+    </form>
+  </section>
+
+  <!-- TABLA STOCK -->
+  <section>
+    <h2>Stock actual</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Categoría</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaProductos"></tbody>
+    </table>
+  </section>
+<!-- 
+<section>
+  <h2>Re-stockear producto</h2>
+
+  <select id="productoRestock"></select>
+  <input id="cantidadRestock" type="number" placeholder="Cantidad a sumar">
+  <button id="btnRestock">Sumar stock</button>
+</section>
+-->
+  <!-- SALIDAS -->
+  
+
+  <script src="js/index.js"></script>
+</body>
+</html>
