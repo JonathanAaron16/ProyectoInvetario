@@ -1,5 +1,6 @@
 const form = document.getElementById('formProducto');
 const lista = document.getElementById('listaProductos');
+const barraBusqueda = document.querySelector(".search-bar");
 
 fetch('/api/auth/me')
   .then(res => {
@@ -53,27 +54,48 @@ form.addEventListener('submit', async e => {
   form.reset();
   cargarProductos();
 });
+
+let productos = [];
+
 async function cargarProductos() {
   const res = await fetch('/api/productos');
-  const productos = await res.json();
+   productos = await res.json();
 
+  const tabla = document.getElementById('tablaProductos');
+  mostrarProductos(productos);
+}
+function mostrarProductos(listaProductos) {
   const tabla = document.getElementById('tablaProductos');
   tabla.innerHTML = '';
 
-  productos.forEach(p => {
+  listaProductos.forEach(p => {
     tabla.innerHTML += `
       <tr>
         <td>${p.nombre}</td>
         <td>${p.categoria || '-'}</td>
         <td>${p.stock}</td>
         <td>
-        <button onclick="sumarStock('${p._id}')">➕ Sumar</button>
-          <button onclick="descontarStock('${p._id}', ${p.stock})">➖ Descontar </button>
-          <button onclick="eliminarProducto('${p._id}')"> 🗑 Eliminar  </button>
+          <button onclick="sumarStock('${p._id}')">➕</button>
+          <button onclick="descontarStock('${p._id}', ${p.stock})">➖</button>
+          <button onclick="eliminarProducto('${p._id}')">🗑</button>
         </td>
       </tr>
     `;
   });
+}
+
+
+
+
+barraBusqueda.addEventListener("keyup", filtrarProductos);
+
+function filtrarProductos() {
+	let valorBusqueda = barraBusqueda.value.toLowerCase();
+	
+
+	let productosFiltrados = productos.filter(p => p.nombre.toLowerCase().includes(valorBusqueda));
+   
+	mostrarProductos(productosFiltrados);
 }
 
 
@@ -138,7 +160,7 @@ async function eliminarProducto(id) {
   });
 
   cargarProductos();
-  cargarProductosSalida();
+  
   
  
 }
