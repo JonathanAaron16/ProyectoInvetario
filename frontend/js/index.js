@@ -41,9 +41,12 @@ form.addEventListener('submit', async e => {
     cantidad: Number(cantidad.value)
   };
 
-  await fetch('http://localhost:3000/api/productos', {
+  await fetch('/api/productos', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  },
     body: JSON.stringify(producto)
   });
 
