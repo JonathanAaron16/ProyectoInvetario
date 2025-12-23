@@ -20,7 +20,21 @@ form input, select {
   margin-right: 5px;
 }
 
-button {
+.botonAgregar{
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 3px;
+  border-radius: 10px;
+  box-shadow: 0 7px #999;
+
+}
+.botonAgregar:active, #btnLogin:active{
+  box-shadow: 1px 5px #666;
+  transform: translateY(4px);
+}
+
+
+.botonAccion {
   padding: 6px 12px;
   cursor: pointer;
 }

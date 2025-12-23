@@ -75,9 +75,9 @@ function mostrarProductos(listaProductos) {
         <td>${p.categoria || '-'}</td>
         <td>${p.stock}</td>
         <td>
-          <button onclick="sumarStock('${p._id}')">➕</button>
-          <button onclick="descontarStock('${p._id}', ${p.stock})">➖</button>
-          <button onclick="eliminarProducto('${p._id}')">🗑</button>
+          <button class="botonAccion" onclick="sumarStock('${p._id}')" title="Sumar">➕</button>
+          <button class="botonAccion" onclick="descontarStock('${p._id}', ${p.stock})" title="Restar">➖</button>
+          <button class="botonAccion" onclick="eliminarProducto('${p._id}')" title="Borrar">🗑️</button>
         </td>
       </tr>
     `;
