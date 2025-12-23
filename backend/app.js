@@ -25,13 +25,9 @@ const app = express();
 app.set("trust proxy", 1);
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: 'inventario-secreto',
   resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: true,      // HTTPS
-    sameSite: "none"   // Render
-  }
+  saveUninitialized: false
 }));
 
 

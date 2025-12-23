@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
     return res.status(401).json({ error: 'No autorizado' });
     
   }
-  console.log("SESSION:", req.session);
+ 
   next();
 };
 
